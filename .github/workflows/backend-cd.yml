@@ -1,0 +1,27 @@
+name: Backend CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+
+      - name: Wait for Deploy
+        run: sleep 60 # Simple wait, in production use a better check
+
+      - name: Smoke Test
+        run: |
+          # Replace with your actual Render URL
+          # curl -f https://your-backend-service.onrender.com/health
+          echo "Smoke test skipped (URL not known yet)"
