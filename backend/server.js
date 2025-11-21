@@ -92,18 +92,25 @@ app.use((err, req, res, next) => {
 
 // 7. Database Connection & Server Start
 const startServer = async () => {
-    try {
-        if (!process.env.MONGODB_URI) {
-            logger.warn('MONGODB_URI is not defined. Skipping database connection for demo purposes.');
-        } else {
+    // 1. Attempt Database Connection
+    if (!process.env.MONGODB_URI) {
+        logger.warn('MONGODB_URI is not defined. Skipping database connection.');
+    } else {
+        try {
             await mongoose.connect(process.env.MONGODB_URI, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
-                maxPoolSize: 50, // Connection pooling
+                maxPoolSize: 50,
             });
             logger.info('Connected to MongoDB');
+        } catch (err) {
+            logger.error('MongoDB connection failed (Check IP Whitelist in Atlas):', err);
+            // We continue to start the server even if DB fails, to allow health checks
         }
+    }
 
+    // 2. Start HTTP Server
+    try {
         const server = app.listen(PORT, () => {
             logger.info(`Server running on port ${PORT}`);
         });
@@ -122,9 +129,8 @@ const startServer = async () => {
 
         process.on('SIGTERM', shutdown);
         process.on('SIGINT', shutdown);
-
     } catch (err) {
-        logger.error('Failed to start server:', err);
+        logger.error('Failed to start HTTP server:', err);
         process.exit(1);
     }
 };
