@@ -27,7 +27,7 @@ A production-ready MERN stack application demonstrating DevOps best practices, i
 ## 🚀 Live Demo
 
 - **Frontend**: [https://your-frontend-app.vercel.app](https://your-frontend-app.vercel.app)
-- **Backend API**: [https://deployment-and-devops-essentials-rjel.onrender.com/](https://deployment-and-devops-essentials-rjel.onrender.com/)
+- **Backend API**: [https://deployment-and-devops-essentials-rjel.onrender.com/]
 
 ## 🏁 Getting Started
 
@@ -40,7 +40,7 @@ A production-ready MERN stack application demonstrating DevOps best practices, i
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-Joffopiyo.git
    cd your-repo
    ```
 
