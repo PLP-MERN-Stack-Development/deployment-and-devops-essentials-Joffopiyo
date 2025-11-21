@@ -27,7 +27,7 @@ A production-ready MERN stack application demonstrating DevOps best practices, i
 ## 🚀 Live Demo
 
 - **Frontend**: [https://your-frontend-app.vercel.app](https://your-frontend-app.vercel.app)
-- **Backend API**: [https://your-backend-service.onrender.com](https://your-backend-service.onrender.com)
+- **Backend API**: [https://deployment-and-devops-essentials-rjel.onrender.com/](https://deployment-and-devops-essentials-rjel.onrender.com/)
 
 ## 🏁 Getting Started
 
